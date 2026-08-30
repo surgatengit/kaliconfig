@@ -13,6 +13,15 @@ herramientas habitual.
 bash <(curl -fsSL https://raw.githubusercontent.com/surgatengit/kaliconfig/master/setup.sh)
 ```
 
+Dos detalles que hacen que funcione:
+
+- La URL es la de **`raw.githubusercontent.com`**, no la de `github.com/.../blob/...`.
+  Esta última devuelve la página web de GitHub, no el fichero.
+- La rama de este repositorio es **`master`**, no `main`.
+- No uses `curl ... | bash`. Al canalizar por tubería, `stdin` queda ocupado y el
+  menú interactivo y la contraseña de `sudo` dejan de funcionar. La sintaxis
+  `bash <(curl ...)` mantiene el terminal libre.
+
 Si prefieres revisarlo antes de ejecutarlo (recomendable, siempre):
 
 ```bash
